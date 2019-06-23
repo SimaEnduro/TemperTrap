@@ -31,7 +31,7 @@ jobs:
           name: Start Selenium
           command: |
             java -jar selenium-server-standalone-3.141.59.jar
-          background: false
+          background: true
       - run:
           command: |
             . venv/bin/activate
