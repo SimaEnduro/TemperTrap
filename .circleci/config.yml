@@ -6,4 +6,5 @@ jobs:
     steps:
       - checkout
       - run: pip install --upgrade pip
+      - run: pip freeze > requirements.txt
       - run: pip install -r requirements/dev.txt
