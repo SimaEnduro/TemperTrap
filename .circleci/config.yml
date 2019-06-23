@@ -6,14 +6,15 @@ jobs:
         environment:
           FLASK_CONFIG: testing
           TEST_DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
-      - image: circleci/postgres:9.6.5-alpine-ram
-        environment:
-          POSTGRES_USER: root
-          POSTGRES_DB: circle_test
-          POSTGRES_PASSWORD: ""      
     steps:
       - checkout
       - run: pip install --upgrade pip
       - run: pip freeze > requirements.txt
       - run: find -name "requirements.txt"
       - run: pip install -r requirements.txt
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt      
