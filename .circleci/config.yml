@@ -10,3 +10,8 @@ jobs:
       - run: sudo pip install requests
       - run: 
           command: python StravaLogin.py
+      - store_artifacts:
+          path: testreports/
+          destination: tr1
+      - store_test_results:
+          path: testreports/                
