@@ -35,6 +35,25 @@ jobs:
           paths:
             - "venv"        
 
+services:
+  selenium-hub:
+    image: selenium/hub:3.8.1          # 3.7.1 works instead
+    ports:
+      - 14444:4444
+
+
+  chrome:
+    image: selenium/node-chrome:3.8.1
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium-hub
+      - HUB_PORT_4444_TCP_PORT=4444
+    volumes:
+      - /dev/shm:/dev/shm
+      
+jobs:
+  build:      
+    steps:
+      - checkout      
       - run:
           command: |
             . venv/bin/activate
