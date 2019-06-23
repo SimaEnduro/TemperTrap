@@ -32,3 +32,12 @@ jobs:
           command: |
             java -jar selenium-server-standalone-3.141.59.jar
           background: false
+      - run:
+          command: |
+            . venv/bin/activate
+            python StravaLogin.py test
+      - store_artifacts:
+          path: test-reports/
+          destination: tr1
+      - store_test_results:
+          path: test-reports/          
