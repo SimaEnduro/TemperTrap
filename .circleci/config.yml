@@ -8,13 +8,10 @@ jobs:
           TEST_DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
     steps:
       - checkout
-      - run: pip install --upgrade pip
-      - run: pip freeze > requirements.txt
-      - run: find -name "requirements.txt"
-      - run: pip install -r requirements.txt
       - run:
           name: Install Python deps in a venv
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt      
+            pip install --upgrade pip
