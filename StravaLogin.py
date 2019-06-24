@@ -27,8 +27,8 @@ submit.click()
 elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
-  
-newpath = r'C:/Users/simona.jurenkova/Documents/code/GIT/TemperTrap/screens'
+
+newpath = r'https://github.com/SimaEnduro/TemperTrap/tree/master/screens'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
