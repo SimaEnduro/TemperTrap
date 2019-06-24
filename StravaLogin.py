@@ -32,6 +32,8 @@ newpath = r'https://github.com/SimaEnduro/TemperTrap/tree/master/screens'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
+os.mkdir(screens2)
+
 # open strava.com
 driver.get("http://www.strava.com")
 assert "Strava | Run and Cycling Tracking on the Social Network for Athletes" in driver.title
