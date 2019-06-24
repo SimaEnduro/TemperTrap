@@ -10,7 +10,9 @@ import os
 # from selenium.webdriver import TouchActions
 # from selenium.common.exceptions import ElementClickInterceptedException
 
-os.makedirs(screens)
+
+
+
 
 driver = webdriver.Chrome()
 
@@ -25,6 +27,10 @@ submit.click()
 elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
+
+newpath = r'https://github.com/SimaEnduro/TemperTrap/screens'
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
 
 # open strava.com
 driver.get("http://www.strava.com")
