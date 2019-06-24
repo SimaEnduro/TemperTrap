@@ -1,20 +1,14 @@
 version: 2
-jobs:
-  build:
-    working_directory: ~/selenium_tests
-    docker:
-      - image: circleci/python:3.7-stretch-browsers
-    steps:
-      - add_ssh_keys:
-          fingerprints: "31:e8:11:eb:ef:e4:1a:a5:05:33:d3:37:ad:a2:31:9f"    
-      - checkout
-      - run: mkdir testreports
-      - run: sudo pip install selenium
-      - run: sudo pip install requests
-      - run: 
-          command: python StravaLogin.py
-      - store_artifacts:
-          path: testreports/
-          destination: tr1
-      - store_test_results:
-          path: testreports/                
+general:
+  artifacts:
+    - "./tests/screenshots" #Save the screenshots for the tests
+    
+## Customize dependencies
+dependencies:
+  pre:
+    - sudo pip install -U selenium	
+ 
+## Running Tests
+test:
+   override:
+    - python StravaLogin.py

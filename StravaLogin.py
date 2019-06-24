@@ -28,22 +28,22 @@ elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
 
-newpath = r'https://github.com/SimaEnduro/TemperTrap/tree/master/screens'
-if not os.path.exists(newpath):
-    os.makedirs(newpath)
+
 
 # open strava.com
 driver.get("http://www.strava.com")
 assert "Strava | Run and Cycling Tracking on the Social Network for Athletes" in driver.title
 assert "No results found." not in driver.title
 
+if not (os.path.exists('./tests/screenshots')):
+    os.makedirs('./tests/screenshots')
+
 # driver.implicitly_wait(60)
 driver.maximize_window()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
-driver.save_screenshot('/screens/screenshot.png')
-driver.save_screenshot('screenshot.png')
+driver.save_screenshot('./tests/screenshots/screenshot.png')
 
 # open login screen
 fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
@@ -52,8 +52,7 @@ fb_signup.click()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.ID, 'email')))
 
-driver.save_screenshot('/screens/screenshot2.png')
-driver.save_screenshot('screenshot2.png')
+driver.save_screenshot('./tests/screenshots/screenshot2.png')
 
 # enter login details
 username = driver.find_element_by_id('email')
@@ -72,3 +71,4 @@ wait = WebDriverWait(driver, 10)
 # by_class = driver.find_element_by_class_name('athlete-name')
 # by_class = driver.find_element_by_class_name('avatar-img')
 # by_class.click()
+driver.close()
