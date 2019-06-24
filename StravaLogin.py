@@ -14,9 +14,10 @@ driver = webdriver.Chrome()
 
 driver.get('https://github.com/login?return_to=%2FSimaEnduro')
 driver.maximize_window()
-driver.find_element_by_name('username').send_keys('SimaEnduro')
+driver.find_element_by_name('login').send_keys('SimaEnduro')
 driver.find_element_by_name('password').send_keys('S1mcaL1mca!1')
-driver.find_element_by_css_selector('body > div > div > div > div > form > div.form-actions > button').click()
+submit = driver.find_element_by_name('commit')
+submit.click()
 
 elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//*[@id=\"logged-in-message\"]/h2'))
