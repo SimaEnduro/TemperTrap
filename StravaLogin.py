@@ -20,7 +20,7 @@ submit = driver.find_element_by_name('commit')
 submit.click()
 
 elem = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, '//*[@id=\"logged-in-message\"]/h2'))
+    EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
 
 welcomeText = elem.text
