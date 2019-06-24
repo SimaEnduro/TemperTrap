@@ -43,6 +43,7 @@ wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
 driver.save_screenshot('/screens/screenshot.png')
+driver.save_screenshot('screenshot.png')
 
 # open login screen
 fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
@@ -52,6 +53,7 @@ wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.ID, 'email')))
 
 driver.save_screenshot('/screens/screenshot2.png')
+driver.save_screenshot('screenshot2.png')
 
 # enter login details
 username = driver.find_element_by_id('email')
