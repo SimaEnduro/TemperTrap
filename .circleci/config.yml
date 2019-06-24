@@ -6,8 +6,7 @@ jobs:
       - image: circleci/python:3.7-stretch-browsers
     steps:
       - add_ssh_keys:
-        fingerprints:
-            - "31:e8:11:eb:ef:e4:1a:a5:05:33:d3:37:ad:a2:31:9f"    
+          fingerprints: "31:e8:11:eb:ef:e4:1a:a5:05:33:d3:37:ad:a2:31:9f"    
       - checkout
       - run: mkdir testreports
       - run: sudo pip install selenium
