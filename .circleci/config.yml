@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: C:/Users/simona.jurenkova/Documents/code/GIT/TemperTrap
     docker:
       - image: circleci/python:3.7-stretch-browsers
     steps:
