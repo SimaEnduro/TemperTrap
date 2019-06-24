@@ -28,7 +28,7 @@ elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
 
-newpath = r'https://github.com/SimaEnduro/TemperTrap/screens'
+newpath = r'C:/Users/simona.jurenkova/Documents/code/GIT/TemperTrap/screens'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
