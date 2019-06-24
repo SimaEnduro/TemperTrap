@@ -2,12 +2,15 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+import os
 
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.support.ui import Select
 # from selenium.webdriver import ActionChains
 # from selenium.webdriver import TouchActions
 # from selenium.common.exceptions import ElementClickInterceptedException
+
+os.makedirs(screens)
 
 driver = webdriver.Chrome()
 
@@ -33,7 +36,7 @@ driver.maximize_window()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
-driver.save_screenshot('screenshot.png')
+driver.save_screenshot('/screens/screenshot.png')
 
 # open login screen
 fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
@@ -42,7 +45,7 @@ fb_signup.click()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.ID, 'email')))
 
-driver.save_screenshot('screenshot2.png')
+driver.save_screenshot('/screens/screenshot2.png')
 
 # enter login details
 username = driver.find_element_by_id('email')
