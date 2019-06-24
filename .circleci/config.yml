@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.7-stretch-browsers
     steps:
       - checkout
-      - run: mkdir test-reports
+      - run: mkdir testreports
       - run: sudo pip install selenium
       - run: sudo pip install requests
       - run: 
@@ -15,3 +15,4 @@ jobs:
           destination: tr1
       - store_test_results:
           path: testreports/                
+          
