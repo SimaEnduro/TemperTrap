@@ -23,9 +23,6 @@ elem = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
 )
 
-welcomeText = elem.text
-assertEqual("Popular repositories", welcomeText)
-
 # open strava.com
 driver.get("http://www.strava.com")
 assert "Strava | Run and Cycling Tracking on the Social Network for Athletes" in driver.title
