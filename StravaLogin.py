@@ -11,6 +11,20 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
+
+driver.get('https://github.com/login?return_to=%2FSimaEnduro')
+driver.maximize_window()
+driver.find_element_by_name('username').send_keys('SimaEnduro')
+driver.find_element_by_name('password').send_keys('S1mcaL1mca!1')
+driver.find_element_by_css_selector('body > div > div > div > div > form > div.form-actions > button').click()
+
+elem = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, '//*[@id=\"logged-in-message\"]/h2'))
+)
+
+welcomeText = elem.text
+assertEqual("Popular repositories", welcomeText)
+
 # open strava.com
 driver.get("http://www.strava.com")
 assert "Strava | Run and Cycling Tracking on the Social Network for Athletes" in driver.title
@@ -22,7 +36,6 @@ wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
 driver.save_screenshot('screenshot.png')
-
 
 # open login screen
 fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
