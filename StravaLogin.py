@@ -10,40 +10,35 @@ import os
 # from selenium.webdriver import TouchActions
 # from selenium.common.exceptions import ElementClickInterceptedException
 
-
-
-
-
 driver = webdriver.Chrome()
 
-
-driver.get('https://github.com/login?return_to=%2FSimaEnduro')
-driver.maximize_window()
-driver.find_element_by_name('login').send_keys('SimaEnduro')
-driver.find_element_by_name('password').send_keys('S1mcaL1mca!1')
-submit = driver.find_element_by_name('commit')
-submit.click()
-
-elem = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
-)
-
-
+# driver.get('https://github.com/login?return_to=%2FSimaEnduro')
+# driver.maximize_window()
+# driver.find_element_by_name('login').send_keys('SimaEnduro')
+# driver.find_element_by_name('password').send_keys('S1mcaL1mca!1')
+# submit = driver.find_element_by_name('commit')
+# submit.click()
+#
+# elem = WebDriverWait(driver, 10).until(
+#     EC.presence_of_element_located((By.LINK_TEXT, 'Overview'))
+# )
 
 # open strava.com
 driver.get("http://www.strava.com")
 assert "Strava | Run and Cycling Tracking on the Social Network for Athletes" in driver.title
 assert "No results found." not in driver.title
 
-if not (os.path.exists('./tests/screenshots')):
-    os.makedirs('./tests/screenshots')
+if not (os.path.exists('./screenshots')):
+    os.makedirs('./screenshots')
+
+driver.save_screenshot('./screenshots/screenshot.png')
 
 # driver.implicitly_wait(60)
 driver.maximize_window()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
-driver.save_screenshot('./tests/screenshots/screenshot.png')
+driver.save_screenshot('./screenshots/screenshot2.png')
 
 # open login screen
 fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
@@ -52,7 +47,7 @@ fb_signup.click()
 wait = WebDriverWait(driver, 10)
 element = wait.until(EC.element_to_be_clickable((By.ID, 'email')))
 
-driver.save_screenshot('./tests/screenshots/screenshot2.png')
+driver.save_screenshot('./screenshots/screenshot2.png')
 
 # enter login details
 username = driver.find_element_by_id('email')
@@ -62,7 +57,6 @@ password.send_keys("S1mcaL1mca!1")
 
 login = driver.find_element_by_id('loginbutton')
 login.click()
-
 
 # open my Strava profile
 wait = WebDriverWait(driver, 10)
