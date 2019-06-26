@@ -8,7 +8,7 @@ jobs:
       - run: sudo pip install selenium
       - run: sudo pip install requests
       - run:
-          command: python -m StravaLogin.py
+          command: python StravaLogin.py
       - store_artifacts:
           path: ./screenshots
           destination: screenshots-file
