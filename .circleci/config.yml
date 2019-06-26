@@ -1,14 +1,14 @@
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.7-stretch-browsers
     steps:
       - checkout
       - run: mkdir screenshots
       - run: sudo pip install selenium
       - run: sudo pip install requests
-      - run: 
-          command: python StravaLogin.py
+      - run:
+          command: python -m StravaLogin.py
       - store_artifacts:
           path: ./screenshots
           destination: screenshots-file
