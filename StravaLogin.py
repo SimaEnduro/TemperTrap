@@ -43,6 +43,7 @@ login = driver.find_element_by_id('login-button')
 login.click()
 
 wait = WebDriverWait(driver, 100)
+element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Strava')))
 
 driver.save_screenshot('./screenshots/4_Login.png')
 
