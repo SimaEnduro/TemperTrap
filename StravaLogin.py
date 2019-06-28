@@ -16,4 +16,6 @@ if not (os.path.exists('./screenshots')):
 
 driver.save_screenshot('./screenshots/screenshot.png')
 
+
+
 driver.close()
