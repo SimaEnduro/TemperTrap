@@ -25,7 +25,7 @@ driver.save_screenshot('./screenshots/2_Strava_LandingPage_maximize.png')
 
 
 # open login screen
-fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
+fb_signup = driver.find_element_by_link_text('Log In')
 fb_signup.click()
 
 wait = WebDriverWait(driver, 10)
@@ -36,10 +36,10 @@ driver.save_screenshot('./screenshots/3_OpenLoginScreen.png')
 # enter login details
 username = driver.find_element_by_id('email')
 username.send_keys("simona.jurenkova@gmail.com")
-password = driver.find_element_by_id('pass')
+password = driver.find_element_by_id('password')
 password.send_keys("S1mcaL1mca!1")
 
-login = driver.find_element_by_id('loginbutton')
+login = driver.find_element_by_id('login-button')
 login.click()
 
 wait = WebDriverWait(driver, 10)
