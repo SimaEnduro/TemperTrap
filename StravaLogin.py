@@ -23,4 +23,14 @@ element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Fac
 
 driver.save_screenshot('./screenshots/Strava_LandingPage_maximize.png')
 
+
+# open login screen
+fb_signup = driver.find_element_by_link_text('Sign up with Facebook')
+fb_signup.click()
+
+wait = WebDriverWait(driver, 10)
+element = wait.until(EC.element_to_be_clickable((By.ID, 'email')))
+
+driver.save_screenshot('./screenshots/OpenLoginScreen.png')
+
 driver.close()
