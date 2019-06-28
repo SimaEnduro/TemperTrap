@@ -46,4 +46,4 @@ wait = WebDriverWait(driver, 100)
 
 driver.save_screenshot('./screenshots/4_Login.png')
 
-driver.close()
+# driver.close()
