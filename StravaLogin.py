@@ -43,8 +43,13 @@ login = driver.find_element_by_id('login-button')
 login.click()
 
 wait = WebDriverWait(driver, 100)
-element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Strava')))
+element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Dashboard')))
 
 driver.save_screenshot('./screenshots/4_Login.png')
+
+training = driver.find_element_by_link_text('Training')
+training.click()
+
+driver.save_screenshot('./screenshots/5_Training.png')
 
 # driver.close()
