@@ -42,7 +42,7 @@ password.send_keys("S1mcaL1mca!1")
 login = driver.find_element_by_id('login-button')
 login.click()
 
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 100)
 
 driver.save_screenshot('./screenshots/4_Login.png')
 
