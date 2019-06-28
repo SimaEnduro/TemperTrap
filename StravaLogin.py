@@ -14,8 +14,13 @@ assert "No results found." not in driver.title
 if not (os.path.exists('./screenshots')):
     os.makedirs('./screenshots')
 
-driver.save_screenshot('./screenshots/screenshot.png')
+driver.save_screenshot('./screenshots/Strava_LandingPage.png')
 
+# driver.implicitly_wait(60)
+driver.maximize_window()
+wait = WebDriverWait(driver, 10)
+element = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, 'Sign up with Facebook')))
 
+driver.save_screenshot('./screenshots/Strava_LandingPage_maximize.png')
 
 driver.close()
